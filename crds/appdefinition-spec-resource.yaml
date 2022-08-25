@@ -42,9 +42,9 @@ spec:
                 timeout:
                   type: object
                   properties:
-                    strategy: 
+                    strategy:
                       type: string
-                    limit: 
+                    limit:
                       type: integer
                 requestsMemory:
                   type: string
@@ -144,4 +144,3 @@ spec:
                   type: integer
                 uplinkLimit:
                   type: integer
-                  

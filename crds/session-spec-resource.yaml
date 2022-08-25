@@ -55,4 +55,3 @@ spec:
                   type: string
                 error:
                   type: string
-                  
