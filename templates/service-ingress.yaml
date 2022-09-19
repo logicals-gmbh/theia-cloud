@@ -8,12 +8,12 @@ metadata:
     acme.cert-manager.io/http01-edit-in-place: "true"
   namespace: {{ .Release.Namespace }}
 spec:
-  tls: 
+  tls:
   - hosts:
-    - {{ .Values.hosts.service }}
+    - {{ tpl .Values.hosts.service . }}
     secretName: service-cert-secret
   rules:
-  - host: {{ .Values.hosts.service }}
+  - host: {{ tpl .Values.hosts.service . }}
     http:
       paths:
       - backend:

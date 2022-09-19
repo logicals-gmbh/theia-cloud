@@ -25,6 +25,6 @@ data:
     skip_provider_button="true"
     reverse_proxy="true"
     # email_domains=["*"]
-    cookie_domains=["{{ .Values.hosts.instance }}"]
-    whitelist_domains=["{{ .Values.hosts.instance }}:*",".google.com:*"]
+    cookie_domains=["{{ tpl .Values.hosts.instance . }}"]
+    whitelist_domains=["{{ tpl .Values.hosts.instance . }}:*",".google.com:*"]
     custom_templates_dir="/templates"
