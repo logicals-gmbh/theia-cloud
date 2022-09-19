@@ -13,11 +13,10 @@ metadata:
     nginx.ingress.kubernetes.io/configuration-snippet: |
       proxy_set_header 'X-Forwarded-Uri' $request_uri;
 spec:
-  tls: 
+  tls:
   - hosts:
-    - {{ .Values.hosts.instance }}
+    - {{ tpl .Values.hosts.instance . }}
     secretName: ws-cert-secret
   rules:
-    - host: {{ .Values.hosts.instance }}
+    - host: {{ tpl .Values.hosts.instance . }}
       http:
-      
