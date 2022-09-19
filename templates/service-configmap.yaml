@@ -6,3 +6,4 @@ metadata:
 data:
   APPID: {{ .Values.app.id }}
   SERVICE_PORT: {{ .Values.hosts.servicePort | quote }}
+  QUARKUS_HTTP_READ_TIMEOUT: "5M"
