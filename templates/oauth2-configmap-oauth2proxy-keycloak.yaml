@@ -26,5 +26,8 @@ data:
     reverse_proxy="true"
     # email_domains=["*"]
     cookie_domains=["{{ tpl .Values.hosts.instance . }}"]
-    whitelist_domains=["{{ tpl .Values.hosts.instance . }}:*",".google.com:*"]
+    whitelist_domains=["{{ tpl .Values.hosts.instance . }}:*"]
     custom_templates_dir="/templates"
+    redis_connection_url="redis://{{ .Release.Name }}-redis-master.{{ .Release.Namespace }}.svc.cluster.local:6379"
+    redis_password="{{ .Values.global.redis.password }}"
+    session_store_type="redis"
