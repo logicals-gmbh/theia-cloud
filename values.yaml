@@ -91,7 +91,7 @@ keycloak:
   # The cookie secret. This should not be public! Only has to be specified when enable: true
   # See https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview/#generating-a-cookie-secret
   # for how to generate a strong cookie secret.
-  cookieSecret: "OQINaROshtE9TcZkNAm5Zs2Pv3xaWytBmc5W7sPX7ws="
+  cookieSecret: ""
 
 # Values related to the operator
 operator:
@@ -146,3 +146,6 @@ ingress:
   # This is only required when the issued certificate by the cert-manager misses a
   # common-name
   theiaCloudCommonName: false
+
+oauth2:
+  cookieDomains: .192.168.39.173.nip.io
