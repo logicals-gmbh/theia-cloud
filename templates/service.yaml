@@ -6,7 +6,7 @@ metadata:
     app: service
   namespace: {{ .Release.Namespace }}
 spec:
-  replicas: 0
+  replicas: {{ .Values.service.replica }}
   selector:
     matchLabels:
       app: service

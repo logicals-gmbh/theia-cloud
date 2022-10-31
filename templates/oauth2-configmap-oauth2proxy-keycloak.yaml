@@ -27,7 +27,7 @@ data:
     reverse_proxy="true"
     # email_domains=["*"]
 {{ if .Values.oauth2.cookieDomains }}
-    cookie_domains=[{{ tpl .Values.oauth2.cookieDomains . }}]
+    cookie_domains={{tpl .Values.oauth2.cookieDomains . }}
 {{ else }}
     cookie_domains=[{{ tpl .Values.hosts.instance . }}]
 {{ end }}
