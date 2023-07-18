@@ -57,6 +57,8 @@ hosts:
 
 # Values related to the landing page
 landingPage:
+  enabled: false
+
   # the landing page image to use
   image: theiacloud/theia-cloud-landing-page:0.8.0.MS6
 
@@ -94,7 +96,7 @@ keycloak:
   # The cookie secret. This should not be public! Only has to be specified when enable: true
   # See https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview/#generating-a-cookie-secret
   # for how to generate a strong cookie secret.
-  cookieSecret: "OQINaROshtE9TcZkNAm5Zs2Pv3xaWytBmc5W7sPX7ws="
+  cookieSecret: ""
 
 # Values related to the operator
 operator:
@@ -126,6 +128,9 @@ operator:
   # Set the number of active sessions a single user can launch
   sessionsPerUser: "1"
 
+  # Replica count
+  replica: 1
+
 # Values of the Theia.cloud REST service
 service:
   # The image to use
@@ -133,6 +138,9 @@ service:
 
   # Optional: the image pull secret
   imagePullSecret: pullsecret
+
+  # Replica count
+  replica: 1
 
 # Values to influence the ingresses
 ingress:
@@ -149,3 +157,6 @@ ingress:
   # This is only required when the issued certificate by the cert-manager misses a
   # common-name
   theiaCloudCommonName: false
+
+oauth2:
+  cookieDomains: .192.168.39.173.nip.io

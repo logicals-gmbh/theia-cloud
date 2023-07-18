@@ -6,7 +6,7 @@ metadata:
     app: operator
   namespace: {{ .Release.Namespace }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.operator.replica }}
   selector:
     matchLabels:
       app: operator
@@ -33,7 +33,7 @@ spec:
           - "--sessionsPerUser"
           - "{{ .Values.operator.sessionsPerUser }}"
           - "--appId"
-          - {{ .Values.app.id }}
+          - {{ tpl .Values.app.id . }}
       {{- if .Values.operator.imagePullSecret }}
       imagePullSecrets:
         - name: {{ .Values.operator.imagePullSecret }}

@@ -14,6 +14,7 @@ data:
     client_id="{{ .Values.keycloak.clientId }}"
     client_secret="{{ .Values.keycloak.clientSecret }}"
     cookie_secret="{{ .Values.keycloak.cookieSecret }}"
+    cookie_name="session"
     cookie_secure="false"
     #proxy_prefix=""
     # Upstream config
@@ -25,9 +26,13 @@ data:
     skip_provider_button="true"
     reverse_proxy="true"
     # email_domains=["*"]
-    cookie_domains=["{{ tpl .Values.hosts.instance . }}"]
+{{ if .Values.oauth2.cookieDomains }}
+    cookie_domains={{tpl .Values.oauth2.cookieDomains . }}
+{{ else }}
+    cookie_domains=[{{ tpl .Values.hosts.instance . }}]
+{{ end }}
     whitelist_domains=["{{ tpl .Values.hosts.instance . }}:*"]
     custom_templates_dir="/templates"
     redis_connection_url="redis://{{ .Release.Name }}-redis-master.{{ .Release.Namespace }}.svc.cluster.local:6379"
-    redis_password="{{ .Values.global.redis.password }}"
+    redis_password={{ .Values.global.redis.password | quote }}
     session_store_type="redis"
