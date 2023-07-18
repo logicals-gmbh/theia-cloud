@@ -11,7 +11,7 @@ spec:
   tls:
   - hosts:
     - {{ tpl .Values.hosts.service . }}
-    secretName: service-cert-secret
+    secretName: {{ tpl .Values.hosts.tlsSecret . }}
   rules:
   - host: {{ tpl .Values.hosts.service . }}
     http:

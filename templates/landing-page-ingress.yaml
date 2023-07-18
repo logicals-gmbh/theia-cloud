@@ -11,7 +11,7 @@ spec:
   tls:
   - hosts:
     - {{ tpl .Values.hosts.landing . }}
-    secretName: landing-page-cert-secret
+    secretName: {{ tpl .Values.hosts.tlsSecret . }}
   rules:
   - host: {{ tpl .Values.hosts.landing . }}
     http:

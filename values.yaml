@@ -52,6 +52,9 @@ hosts:
   # hostname for the launched Theia-applications
   instance: ws.192.168.39.173.nip.io
 
+  # the tls secret to use for the landing page (certificate)
+  tlsSecret: theia-cloud-tls
+
 # Values related to the landing page
 landingPage:
   # the landing page image to use

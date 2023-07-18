@@ -16,7 +16,7 @@ spec:
   tls:
   - hosts:
     - {{ tpl .Values.hosts.instance . }}
-    secretName: ws-cert-secret
+    secretName: {{ tpl .Values.hosts.tlsSecret . }}
   rules:
     - host: {{ tpl .Values.hosts.instance . }}
       http:
